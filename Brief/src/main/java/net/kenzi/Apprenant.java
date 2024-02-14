@@ -1,5 +1,6 @@
 package net.kenzi;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -20,13 +21,14 @@ public class Apprenant {
     }
 
     public Apprenant(String nom, String prenom, String dateDeNaissance, String adresse, String numeroDeTelephone, int numeroClasse) {
+        this();
         this.nom = nom;
         this.prenom = prenom;
         this.dateDeNaissance = dateDeNaissance;
         this.adresse = adresse;
         this.numeroDeTelephone = numeroDeTelephone;
         this.numeroClasse = numeroClasse;
-        this.apprenantID = UUID.randomUUID().toString();
+
     }
 
     public static void ajouterApprenant() {
@@ -119,20 +121,26 @@ public class Apprenant {
         System.out.println("Aucun apprenant trouvé avec ce nom, prénom ou identifiant.");
     }
 
+
+
     @Override
     public String toString() {
         return "Apprenant{" +
-                "nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", dateDeNaissance='" + dateDeNaissance + '\'' +
-                ", adresse='" + adresse + '\'' +
-                ", numeroDeTelephone='" + numeroDeTelephone + '\'' +
-                ", numeroClasse=" + numeroClasse +
-                ", apprenantID='" + apprenantID + '\'' +
-                '}';
+                "\nnom='" + nom + '\'' +
+                "\nprenom='" + prenom + '\'' +
+                "\ndateDeNaissance='" + dateDeNaissance + '\'' +
+                "\nadresse='" + adresse + '\'' +
+                "\nnumeroDeTelephone='" + numeroDeTelephone + '\'' +
+                "\nnumeroClasse=" + numeroClasse +
+                "\napprenantID='" + apprenantID + '\'' +
+                "\n}";
     }
 
     // Getters et setters
+    public static List<Apprenant> getListeApprenants() {
+        return Apprenant.listeApprenants;
+    }
+
     public String getNom() {
         return nom;
     }

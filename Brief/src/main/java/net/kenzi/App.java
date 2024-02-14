@@ -7,7 +7,6 @@ import static net.kenzi.Apprenant.*;
 //import static net.kenzi.Apprenants.ajouterUnApprenant;
 
 public class App {
-
     public static void main(String[] args) {
         boolean running = true;
         Scanner scanner = new Scanner(System.in);
@@ -19,7 +18,7 @@ public class App {
                     gererApprenants();
                     break;
                 case 2:
-                    //gererClasses();
+                    gererClasses();
                     break;
                 case 3:
                     System.out.println("Au revoir !");
@@ -29,7 +28,7 @@ public class App {
                     System.out.println("Choix invalide, veuillez réessayer.");
             }
         }
-        scanner.close();
+        //scanner.close();
     }
 
     public static void afficherMenuPrincipal() {
@@ -70,8 +69,55 @@ public class App {
                     System.out.println("Choix invalide, veuillez réessayer.");
             }
         }
-        scanner.close(); // Fermer le scanner une fois que la boucle est terminée
+        //scanner.close(); // Fermer le scanner une fois que la boucle est terminée
     }
+    public static void gererClasses() {
+        boolean running = true;
+        Scanner scanner = new Scanner(System.in);
+        while (running) {
+            afficherMenuClasses();
+            int choix = scanner.nextInt();
+            switch (choix) {
+                case 1:
+                    Classe.ajouterUneClasse();
+                    break;
+                case 2:
+                    Classe.modifierUneClasse();
+                    break;
+                case 3:
+                    Classe.supprimerClasse();
+                    break;
+                case 4:
+                    Classe.afficherListeClasses();
+                    break;
+                case 5:
+                    Scanner sc = new Scanner(System.in);
+                    System.out.println("entrez le numero de classe a failtrer :");
+                    int n = sc.nextInt();
+                    Classe.filtrerApprenantsParClasse(n);
+                    break;
+                case 6:
+                    running = false;
+                    break;
+                default:
+                    System.out.println("Choix invalide, veuillez réessayer.");
+            }
+        }
+        //scanner.close(); // Fermer le scanner une fois que la boucle est terminée
+    }
+
+    public static void afficherMenuClasses() {
+        System.out.println("\n===== GÉRER LES CLASSES =====");
+        System.out.println("1. Ajouter une nouvelle classe");
+        System.out.println("2. Modifier les informations d'une classe existante");
+        System.out.println("3. Supprimer une classe existante");
+        System.out.println("4. Consulter la liste des classes");
+        System.out.println("5. Filtrer les apprenants par classe");
+        System.out.println("6. Retour");
+        System.out.print("Choix: ");
+    }
+
+
 
 
     public static void afficherMenuApprenants() {
@@ -84,6 +130,4 @@ public class App {
         System.out.println("6. Retour");
         System.out.print("Choix: ");
     }
-
-
 }
